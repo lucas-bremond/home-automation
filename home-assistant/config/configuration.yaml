@@ -1,0 +1,40 @@
+default_config:
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+tts:
+  - platform: google_translate
+
+http:
+  server_port: 9000
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - 172.16.1.0/24
+  ip_ban_enabled: true
+  login_attempts_threshold: 3
+
+google_assistant:
+  project_id: home-xxxxx
+  service_account: !include Home-xxxxxxx.json
+  report_state: true
+  exposed_domains:
+    - switch
+    - light
+
+homekit:
+  name: HomeKit Bridge
+  port: 51827
+  advertise_ip: 192.168.86.209 # Home Assistant host IP
+  filter:
+    include_domains:
+      - switch
+      - light
+
+wemo:
+  discovery: false
+  static:
+    - 192.168.86.106
+    - 192.168.86.125

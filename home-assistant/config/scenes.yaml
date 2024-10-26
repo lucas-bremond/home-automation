@@ -1,0 +1,10 @@
+- id: '1606701488819'
+  name: Moody
+  entities:
+    switch.living_room_lamp_1_switch:
+      friendly_name: Red Lamp
+      icon: mdi:lightbulb
+      state: 'on'
+    switch.living_room_lamp_2_switch:
+      friendly_name: Living Room Lamp 2 Switch
+      state: 'off'
